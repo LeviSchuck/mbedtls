@@ -132,9 +132,9 @@
         #if !defined(MBEDTLS_MPI_HALF_BITS)
             #define MBEDTLS_MPI_HALF_BITS 32
         #endif /* MBEDTLS_MPI_HALF_BITS */
-        #if !defined(MBEDTLS_MPI_UINT_MASK)
-            #define MBEDTLS_MPI_UINT_MASK 0x7fffffffffffffffLL
-        #endif /* MBEDTLS_MPI_UINT_MASK */
+        #if !defined(MBEDTLS_MPI_INT_MASK)
+            #define MBEDTLS_MPI_INT_MASK 0xffffffffffffffffLL
+        #endif /* MBEDTLS_MPI_INT_MASK */
     #elif defined(__GNUC__) && (                         \
         defined(__amd64__) || defined(__x86_64__)     || \
         defined(__ppc64__) || defined(__powerpc64__)  || \
@@ -150,9 +150,9 @@
         #if !defined(MBEDTLS_MPI_UINT_BITS)
             #define MBEDTLS_MPI_UINT_BITS 64
         #endif /* MBEDTLS_MPI_UINT_BITS */
-        #if !defined(MBEDTLS_MPI_UINT_MASK)
-            #define MBEDTLS_MPI_UINT_MASK 0x7fffffffffffffffLL
-        #endif /* MBEDTLS_MPI_UINT_MASK */
+        #if !defined(MBEDTLS_MPI_INT_MASK)
+            #define MBEDTLS_MPI_INT_MASK 0xffffffffffffffffLL
+        #endif /* MBEDTLS_MPI_INT_MASK */
         #if !defined(MBEDTLS_MPI_HALF_MASK)
             #define MBEDTLS_MPI_HALF_MASK 0xffffffff
         #endif /* MBEDTLS_MPI_HALF_MASK */
@@ -177,9 +177,9 @@
         #if !defined(MBEDTLS_MPI_UINT_BITS)
             #define MBEDTLS_MPI_UINT_BITS 64
         #endif /* MBEDTLS_MPI_UINT_BITS */
-        #if !defined(MBEDTLS_MPI_UINT_MASK)
-            #define MBEDTLS_MPI_UINT_MASK 0x7fffffffffffffffLL
-        #endif /* MBEDTLS_MPI_UINT_MASK */
+        #if !defined(MBEDTLS_MPI_INT_MASK)
+            #define MBEDTLS_MPI_INT_MASK 0xffffffffffffffffLL
+        #endif /* MBEDTLS_MPI_INT_MASK */
         #if !defined(MBEDTLS_MPI_HALF_MASK)
             #define MBEDTLS_MPI_HALF_MASK 0xffffffff
         #endif /* MBEDTLS_MPI_HALF_MASK */
@@ -198,9 +198,9 @@
         #if !defined(MBEDTLS_MPI_UINT_BITS)
             #define MBEDTLS_MPI_UINT_BITS 64
         #endif /* MBEDTLS_MPI_UINT_BITS */
-        #if !defined(MBEDTLS_MPI_UINT_MASK)
-            #define MBEDTLS_MPI_UINT_MASK 0x7fffffffffffffffLL
-        #endif /* MBEDTLS_MPI_UINT_MASK */
+        #if !defined(MBEDTLS_MPI_INT_MASK)
+            #define MBEDTLS_MPI_INT_MASK 0xffffffffffffffffLL
+        #endif /* MBEDTLS_MPI_INT_MASK */
         #if !defined(MBEDTLS_MPI_HALF_MASK)
             #define MBEDTLS_MPI_HALF_MASK 0xffffffff
         #endif /* MBEDTLS_MPI_HALF_MASK */
@@ -220,9 +220,9 @@
     #if !defined(MBEDTLS_MPI_UINT_BITS)
         #define MBEDTLS_MPI_UINT_BITS 32
     #endif /* MBEDTLS_MPI_UINT_BITS */
-    #if !defined(MBEDTLS_MPI_UINT_MASK)
-        #define MBEDTLS_MPI_UINT_MASK 0x7fffffff
-    #endif /* MBEDTLS_MPI_UINT_MASK */
+    #if !defined(MBEDTLS_MPI_INT_MASK)
+        #define MBEDTLS_MPI_INT_MASK 0xffffffff
+    #endif /* MBEDTLS_MPI_INT_MASK */
     #if !defined(MBEDTLS_MPI_HALF_MASK)
         #define MBEDTLS_MPI_HALF_MASK 0xffff
     #endif /* MBEDTLS_MPI_HALF_MASK */
