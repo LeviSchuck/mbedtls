@@ -54,6 +54,14 @@
 #define mbedtls_free       free
 #endif
 
+/*
+ * Prevent the number of bits or limbs causing a sign bit to be set
+ * in a 32 bit configuration.
+ */
+#if MBEDTLS_MPI_UINT_BITS == 32 && MBEDTLS_MPI_MAX_LIMBS > 33554432
+#error "Invalid configuration detected. MBEDTLS_MPI_MAX_LIMBS cannot exceed 2^25"
+#endif
+
 #define MPI_VALIDATE_RET( cond )                                       \
     MBEDTLS_INTERNAL_VALIDATE_RET( cond, MBEDTLS_ERR_MPI_BAD_INPUT_DATA )
 #define MPI_VALIDATE( cond )                                           \
@@ -1001,7 +1009,6 @@ int mbedtls_mpi_write_binary( const mbedtls_mpi *X,
 int mbedtls_mpi_first_nonzero(size_t *out, const mbedtls_mpi *X)
 {
     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;
-    MPI_VALIDATE_RET( X->n < 0x80000000 );
     size_t i, iterator;
     mbedtls_mpi_sint mask, imask;
     i = 0;
@@ -1807,10 +1814,6 @@ int mbedtls_mpi_mul_mpi( mbedtls_mpi *X, const mbedtls_mpi *A, const mbedtls_mpi
     MPI_VALIDATE_RET( X != NULL );
     MPI_VALIDATE_RET( A != NULL );
     MPI_VALIDATE_RET( B != NULL );
-
-    /* Ensure A->n and B->n are smaller than 2^31. */
-    MPI_VALIDATE_RET( A->n < 0x80000000 );
-    MPI_VALIDATE_RET( B->n < 0x80000000 );
 
     mbedtls_mpi_init( &TA ); mbedtls_mpi_init( &TB );
 
